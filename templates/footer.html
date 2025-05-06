@@ -1,0 +1,62 @@
+{% load static %}
+<footer>
+    <div class="container-fluid mt-5 pt-2 bg-dark text-white">
+        <div class="container">
+        <div class="row">
+          <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12 footer pt-5">
+            <p style="font-size:20px;text-transform: uppercase;font-weight: 800;color:white" data-aos="slide-right">Scottie Hampton</p>
+            <p data-aos="slide-right">{{short_about}}</p>
+          </div>
+          <div class="col-xl-3 pt-5 hide-girl">
+            <span style="font-size:20px;text-transform: uppercase;font-weight: 800;color:white" data-aos="zoom-in-left">products</span><br>
+            <p style="margin-top:3%" data-aos="slide-up">M D Bootstrap</p>
+            <p style="margin-top:-3%" data-aos="slide-up">M D Bootstrap</p>
+            <p style="margin-top:-3%" data-aos="slide-up">M D Bootstrap</p>
+            <p style="margin-top:-3%;" data-aos="slide-up">M D Bootstrap</p>
+         </div>
+          <div class="col-xl-3 col-lg-4 col-md-4 col-sm-12 col-12 footer  pt-5">
+            <span style="font-size:20px;text-transform: uppercase;font-weight: 800;color:white" class="text-center" data-aos="zoom-in-left">useful link</span><br>
+            <a href="{%url 'homeshop:about'%}" style="margin-top:-3%;margin-left:1%;color:white" data-aos="fade-up">About</a>
+
+          </div>
+          {% for footer in footer_info %}
+          <div class="col-xl-2 col-lg-4 col-md-4 col-sm-12 col-12 footer pt-5 pb-3">
+            <p style="font-size:20px;text-transform: uppercase;font-weight: 800;color:white" data-aos="slide-left">contact</p>
+            <p data-aos="fade-up"><i class="fa fa-home" aria-hidden="true" style="font-size:20px;"></i>&nbsp; {{footer.City}}</p>
+            <p data-aos="fade-up"><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;{{footer.email}}</p>
+            <p data-aos="fade-up"><i class="fa fa-phone" aria-hidden="true"></i>&nbsp;{{footer.phone}}</p>
+            <p data-aos="fade-up"><i class="fa fa-print" aria-hidden="true"></i>&nbsp;{{footer.telephone}}</p>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      <hr style="color:white;width:100%;border:1px solid">
+      <div class="container mt-4 pb-4">
+        <div class="row">
+          <div class="col-12 col-xl-6 col-lg-6 col-md-6 col-sm-6 ">
+            <p><a href="#/" style="color:white">© 2020 Copyright:</a><span style="font-weight:600;"><a href="#/" style="color:white">MDBootstrap</a></span></p></a>
+          </div>
+          <div class="col-12 col-xl-6 col-lg-6 col-md-6 col-sm-6 icon-head">
+            <a href="#/"><span class="icons-2" style="color:white"><i class="fa fa-facebook" aria-hidden="true"></i></span></a>
+            <a href="#/"><span class="icons-3" style="color:white"><i class="fa fa-twitter" aria-hidden="true"></i></span></a>
+            <a href="#/"><span class="icons-1" style="color:white"><i class="fa fa-google-plus" aria-hidden="true"></i></span></a>
+            <a href="#/"><span class="icons" style="color:white"><i class="fa fa-instagram" aria-hidden="true"></i></span></a>
+          </div>
+        </div>
+      </div>
+      </div>
+      <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+      <script>
+        AOS.init({
+          once:true,
+          duration:1000,
+        });
+      /* const parallax1 =document.getElementById('parallax1');
+      const parallax2 =document.getElementById('parallax2');
+      window.addEventListener("scroll",function(){
+        let offset = window.pageYOffset;
+        parallax1.style.backgroundPositionY = offset * 0.4 + 'px';
+        parallax2.style.backgroundPositionY = offset * 0.9 + 'px';
+      });*/
+    </script>
+</footer>

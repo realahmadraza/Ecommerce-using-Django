@@ -1,0 +1,287 @@
+{% extends "base.html" %}
+{% load static %}
+{%block content%}
+    <body>
+    <div class="container mt-5">
+        <div class="row pt-5">
+            <div class="col-xl-8 col-lg-12 col-md-12 col-sm-12 col-12 mt-3">
+               <div id="accordion">
+                  <div class="card">
+                      <div class="card-header">
+                        <div class="row pt-3">
+                          <div class="col-2 text-center">
+                            <span style="padding:2% 8%;border:1px solid transparent;background-color: rgb(197, 191, 191);">1</span>
+                          </div>
+                          {%if useraddress%}
+                          <div class="col-6">
+                            <span style="font-size:15px;font-weight:600;color:grey;text-transform: uppercase;">delivery address</span>
+                            <p>{{useraddress.name}}</p>
+                          </div>
+                          <div class="col-4 pl-0">
+                            <button class="btn btn-primary" data-toggle="collapse" data-target="#collapseOne" id="button-hidder" style='text-transform: uppercase;'>Change</button>
+                          </div>
+                        </div>
+                      </div>
+                      <div id="collapseOne" class="collapse" data-parent="#accordion">
+                        <div class="card-body">
+                          <div class="row pl-3 ">
+                            <div class="col-6 ">
+                              <input type="radio" class="hide-for-front" name="address" checked>&nbsp;&nbsp;&nbsp;&nbsp;<span style="text-transform:uppercase;font-size:15px;">{{useraddress.name}}</span>
+                            </div>
+                          </div>
+                          <div class="row pl-5 pb-3 hide-for-front"> 
+                            <div class="col">
+                              <span style="text-transform: uppercase;"></span>{{useraddress.address}}</span>
+                            </div>
+                          </div>
+                          <div class="row pl-5 hide-for-front">
+                            <div class="col">
+                              <p><button style="text-transform: uppercase;padding:2% 5%;background-color: tomato;color:white;border-color:transparent" data-toggle="collapse" data-target="#collapseOne,#collapseTwo" id="button-hidder-1">delivery here</button></p>
+                            </div>
+                          </div>
+                          {%else%}
+                          <div><h3>No Address 'Fill the Form'</h3></div>
+                          {%endif%}
+                          <div class="container show-for-front">
+                            <div class="row pl-3 ">
+                              <input type="radio" checked>&nbsp;&nbsp;&nbsp;&nbsp;<span style="text-transform:uppercase;font-size:15px;">EDIT ADDRESS</span>
+                            </div>
+                            <div class="row pl-5 pt-3 pb-3 ">
+                              <button class="btn-primary text-white pl-4 pr-4 pt-2 pb-2" style="border-radius:10px;">Use my current location</button>
+                            </div>
+                          <form method='POST' action="{% url 'homeshop:buynow' %}">
+                            {% csrf_token %}
+                            <div class="row pb-3">
+                              <div class="col-6 text-right pr-0">
+                                <input type="text" name="name" placeholder="NAME" style="width:90%;height:50px;" class="pl-3">
+                              </div>
+                              <div class="col-6">
+                                <input type="text" name="phone" placeholder="10-digit mobile number" style="width:90%;height:50px;" class="pl-3">
+                              </div>
+                            </div>
+                            <div class="row pr-0 pb-3">
+                              <div class="col-6 text-right pr-0">
+                                <input type="text" name="pin" placeholder="Pincode" style="width:90%;height:50px;" class="pl-3">
+                              </div>
+                              <div class="col-6">
+                                <input type="text" name="locality" placeholder="Locality" style="width:90%;height:50px;" class="pl-3">
+                              </div>
+                            </div>
+                            <div class="row pb-3" style="padding-left:4.7%">
+                              <div class="col">
+                                <input type="text" name="address" placeholder="Address (Area and  Street)" style="width:95%;height:50px;" class="pl-3">
+                              </div>
+                            </div>
+                            <div class="row pb-3">
+                              <div class="col-6 text-right pr-0">
+                                <input type="text" name="city" placeholder="City/District/Town" style="width:90%;height:50px;" class="pl-3">
+                              </div>
+                              <div class="col-6">
+                                <input type="text" name="state" placeholder="State" style="width:90%;height:50px;" class="pl-3">
+                              </div>
+                            </div>
+                            <div class="row pr-0 pb-3">
+                              <div class="col-6 text-right pr-0">
+                                <input type="text" name="landmark" placeholder="Landmark (optional)" style="width:90%;height:50px;" class="pl-3">
+                              </div>
+                              <div class="col-6">
+                                <input type="text" name="alternate_phone" placeholder="Alternate Phone (Optional)" style="width:90%;height:50px;" class="pl-3">
+                              </div>
+                            </div>
+                            <div class="row pl-5">
+                              <button class="btn-primary text-white pl-4 pr-4 pt-2 pb-2" style="border-radius:10px;text-transform: uppercase;font-weight: 600;" type="submit">save and deliver here</button>
+                              &nbsp;&nbsp;&nbsp;<span class="pt-2 call-back"><a href="#/" style="text-transform: uppercase;">cancel</a></span>
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+                  </div>
+                  <div class="card">
+                    <div class="card-header">
+                      <div class="row pt-3 pb-3">
+                        <div class="col-2 text-center">
+                          <span style="padding:2% 8%;border:1px solid transparent;background-color: rgb(197, 191, 191);">2</span>
+                        </div>
+                        <div class="col-10">
+                          <span style="font-size:15px;font-weight:600;color:grey;text-transform: uppercase;">Order Summary</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="collapseTwo" class="collapse" >
+                      <div class="card-body">
+                        {%for item in cartproduct%}
+                        <div class="row pb-3 ">
+                          <div class="col-xl-4 col-lg-2 col-md-3 col-sm-3 col-12 pt-5 text-center">
+                            <img src="{{item.product.images.url}}" height="200px">
+                            <div class="text-left">
+                              <select name="Qunatity" class="custom-select mt-2 first">
+                                <option selected>1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                              </select>
+                            </div>
+                          </div>
+                          <div class="col-xl-8 col-lg-10 col-md-8 col-sm-8 col-8 pt-5">                            
+                            <p>Item Name:&nbsp;{{item.product.name}}</p>
+                            <p>Category:&nbsp;{{item.product.category.Category}}</p>
+                            <p>Price:&nbsp;&#8377;{{item.product.price}}</p>
+                            <p><a href="{% url 'homeshop:remove-from-cart' item.pk %}" style="font-weight:700">REMOVE</a></p>
+                          </div>
+                        </div> 
+                        {%endfor%}                       
+                        <div class="row">
+                          <div class="col pr-5 text-right">
+                            <p><button style="text-transform: uppercase;padding:2% 5%;background-color: tomato;color:white;border-color:transparent" data-toggle="collapse" data-target="#collapseTwo,#payment-option">continue</button></p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                <div class="card">
+                  <div class="card-header">
+                    <div class="row pt-3 pb-3">
+                      <div class="col-2 text-center">
+                        <span style="padding:2% 8%;border:1px solid transparent;background-color: rgb(197, 191, 191);">3</span>
+                      </div>
+                      <div class="col-10">
+                        <span style="font-size:15px;font-weight:600;color:grey;text-transform: uppercase;">Payment Options</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <div  id="payment-option">
+                    <div class="row">
+                      <div class="col pl-4 pb-3" id="phone-pe-hidder">
+                        <input type="radio" name="payment-method" data-toggle="collapse" data-target="#phonepe">&nbsp;&nbsp;&nbsp;<img src="{% static 'Images/upi.png' %}" style="height:30px;">
+                      </div>
+                    </div> 
+                    <div id="phonepe" class="collapse"> 
+                      <p>You'll be redirected to PhonePe page …</p>
+                    
+                      <!-- STEP A: hit view that creates a Razorpay Order -->
+                      <form method="POST" action="{% url 'homeshop:razorpay-checkout' %}" >
+                        {% csrf_token %}
+                        <button type="submit"
+                                class="btn"
+                                style="text-transform: uppercase;padding:1.5% 7%;background-color: tomato;color:white;border-color:transparent">
+                          Continue to Pay
+                        </button>
+                      </form>
+                    </div>
+                  </div>
+                      <div class="row">
+                        <div class="col pl-4" id="debit-hidder">
+                          <p><input type="radio" name="payment-method" data-toggle="collapse" data-target="#debit">&nbsp;&nbsp;&nbsp;Credit/Debit/ATM Card</p>
+                        </div>
+                      </div>
+                      <div class="collapse" id="debit">
+                      <div class="row">
+                        <div class="col pl-5">
+                          <p><input type="text" placeholder="Enter Card Number" class="pt-2 pb-2 pl-4 card-number">
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-xl-4 col-lg-4 col-md-4  col-sm-6  col-12  pl-5">
+                          <p><input type="date" placeholder="DD/MM/YY" class="pt-2 pb-2 pl-2 pr-2 date">
+                        </div>
+                        <div class="col-xl-2 col-lg-2 col-md-2  col-sm-3  col-12 pl-5 ">
+                          <p><input type="text" placeholder="CVV" class="pt-2 pb-2 pl-4 cvv">
+                        </div>
+                        <div class="col-xl-6 pt-1 pl-5 "> 
+                          <p><button style="text-transform: uppercase;padding:1.5% 7%;background-color: tomato;color:white;border-color:transparent" data-toggle="collapse" data-target="#payment-option" >PAY &#8377;1,377</button></p>
+                        </div>
+                      </div>
+                      </div>
+                      <div class="row">
+                        <div class="col pl-4" id="net-banking-hidder">
+                          <p><input type="radio" name="payment-method" data-target="#net-banking" data-toggle="collapse">&nbsp;&nbsp;&nbsp;Net Banking</p>
+                        </div>
+                      </div>
+                      <div class="collapse" id="net-banking">
+                      <div class="row pl-4 pr-4">
+                        <div class="col-12 pb-2 ">                                                              
+                          POPULAR BANKS
+                        </div>
+                        <div class="col-xl-4 col-lg-4 col-md-6 pt-3">
+                          <input type="radio" name="bank">&nbsp;&nbsp;&nbsp;<img src="Images/hdfc-logo.png" style="height:20px">&nbsp;&nbsp;HDFC Bank
+                        </div>
+                        <div class="col-xl-4 col-lg-4 col-md-6 pt-3">
+                          <input type="radio" name="bank">&nbsp;&nbsp;<img src="Images/ici-logo.png" style="height:30px">&nbsp;&nbsp;ICICI Bank
+                        </div>
+                        <div class="col-xl-4 col-lg-4 col-md-6 pt-3">
+                          <input type="radio" name="bank">&nbsp;&nbsp;&nbsp;<img src="Images/state-logo.png" style="height:20px">&nbsp;&nbsp;State Bank Of India
+                        </div>
+                        <div class="col-xl-4 col-lg-4 col-md-6 pt-3">
+                          <input type="radio" name="bank">&nbsp;&nbsp;&nbsp;<img src="Images/axis-logo.jpg" style="height:20px">&nbsp;&nbsp;Axis Bank
+                        </div>
+                        <div class="col-xl-4 col-lg-4 col-md-6 pt-3">
+                          <input type="radio" name="bank">&nbsp;&nbsp;<img src="Images/kotak-logo.jpeg" style="height:30px">&nbsp;&nbsp;Kotak Bank
+                        </div>
+                        <div class="col-xl-4 col-lg-4 col-md-6 pt-3">
+                         <span style="visibility: hidden;">hello user</span>
+                        </div>
+                      </div>
+                      <div class="row pt-3 pl-4"> 
+                        <div class="col-12">
+                          <span>Other Bank</span>
+                        </div>
+                        <div class="col-12 pt-3">
+                          <input type="text" placeholder="Bank Name" style="width:50%" class="pt-1 pb-1 pl-4">
+                        </div>
+                        <div class="col-12 pt-4">
+                          <p><button style="text-transform: uppercase;padding:1.5% 7%;background-color: grey;color:white;border-color:transparent;font-weight: 600;" data-toggle="collapse" data-target="#payment-option">PAY &#8377;1,377</button></p>
+                        </div>
+                      </div>
+                      </div>
+                      <div class="row">
+                        <div class="col pl-4" id="cash-hidder">
+                          <p><input type="radio" name="payment-method" data-toggle="collapse" data-target="#cash">&nbsp;&nbsp;&nbsp;Cash on Delivery</p>
+                            <div class="collapse" id="cash">
+                          <p class="pl-3"><button style="text-transform: uppercase;padding:1.5% 7%;background-color: grey;color:white;border-color:transparent;font-weight: 600;"  data-toggle="collapse" data-target="#payment-option">confirm</button></p>
+                              </div>
+                        </div>
+                      </div> 
+                      <div>
+                        <!-- STEP B: once razorpay_order_id is in context, load checkout.js -->
+                        {% if razorpay_order_id %}
+                        <form action="{% url 'homeshop:payment-handler' %}" method="POST" class="btn" style="text-transform: uppercase;padding:1.5% 7%;background-color: tomato;color:white;border-color:black">
+                          {% csrf_token %}
+                          <script 
+                            src="https://checkout.razorpay.com/v1/checkout.js"
+                            data-key="{{ razorpay_key }}"
+                            data-amount="{{ amount }}"
+                            data-currency="INR"
+                            data-order_id="{{ razorpay_order_id }}"                            
+                            data-buttontext="Pay ₹{{ amount|floatformat:-2}}"                            
+                            data-prefill.name="{{ user.username }}"
+                            data-prefill.contact="{{ useraddress.phone }}"
+                            data-theme.color="#F37254">
+                          </script>
+                        </form>
+                      {% endif %}
+                      </div>                 
+                      </div>
+                    </div>
+                  </div>
+              </div>
+              </div>  
+            </div>
+          </div>
+        </div>
+    </div> 
+      <script src="https://unpkg.com/aos@next/dist/aos.js"></script> 
+    <script>
+        AOS.init({
+          once:true,
+          duration:1000,
+        });
+      </script>
+    </body>
+    {%endblock content%}

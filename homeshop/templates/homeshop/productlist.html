@@ -1,0 +1,107 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+        <!--middle-->
+          <div class="container-fluid mt-5 pt-5">
+            <div class="row">
+              
+              <!--left side col start-->
+              <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
+                <div class="container large-left-sider">
+                  <div class="row">
+                    <form method="GET" action="{% url 'homeshop:searchedproducts' %}">
+                      <div class="col-12 px-0 pt-5 pb-4 text-center pl-0">
+                        <input class="search-box" type="text" name='q' placeholder="Search.." >
+                        <span>
+                          <button type="submit" class="search-button"><i class="fa fa-search" id="search-icon"></i></button>
+                        </span>
+                      </div>
+                    </form>
+                  </div>
+                  <div class="row pl-3">
+                   <div class="col-12 pt-3">
+                      <p style="font-size:20px;text-transform: uppercase;font-weight: 600;">All Products</p>         
+                      <span  class="text-bold" name="select-price"><input type="radio" name="price" class="open-content-three-hundred" onclick="window.location.href='{%url 'homeshop:allproducts'%}';">&nbsp;&#8377;ALL</span><br>                    
+                    </div>
+                    <div class="col-12 pt-3">
+                      <p style="font-size:20px;text-transform: uppercase;font-weight: 600;">Price Filter</p>         
+                      <span  class="text-bold" name="select-price"><input type="radio" name="price" class="open-content-three-hundred" onclick="window.location.href='{%url 'homeshop:pricefilter'%}';">&nbsp;&#8377;300-400</span><br>                    
+                    </div>
+                    <div class=" col-12 pt-5">
+                      <p style="font-size:20px;text-transform: uppercase;font-weight: 600;">Offers</p>
+                      <span class="text-bold"><input type="radio" name="color" class="open-content-three-hundred" onclick="window.location.href='{%url 'homeshop:specialoffer'%}';"> &nbsp;Special Offer</span><br>                     
+                    </div>
+                    <div class=" col-12 pb-5 pt-5">
+                      <p style="font-size:20px;text-transform: uppercase;font-weight: 600;">Category</p>
+                      <span  class="text-bold"><input type="radio" name="brand" class="open-content-two-hundred" onclick="window.location.href='{%url 'homeshop:mendresscollection'%}';"> &nbsp;Men</span><br>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!--left side col end-->
+              
+              <!--right side col start-->
+              
+              <!--front look-->
+              
+              <div class="col-xl-9 col-lg-9 col-md-9 col-sm-12 col-12 pl-0" style="border-left:1px solid grey">
+                <div class="container large-right-sider">
+                  <div class="row pt-5 hide-front-page">
+                    {% if products %}
+                    {% for product in products %}
+                    <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6  text-center">
+                       <a href="for-each-image.html"><img src="{{product.images.url}}" class="img-men" data-aos="fade-up" style="border-radius:20px;height:180px"></a> 
+                       <a href="{%url 'homeshop:productdetail' slug=product.slug pk=product.pk%}"><span class="image-lable" data-aos="fade-up">{{product.name}}<br>&#8377;{{product.price}} <br> {%if product.offer_price%}Offered Price: {{product.offer_price}}{%else%}No Offer{%endif%}</span></a>
+                    </div>    
+                    {% endfor %}
+                    {% else %}
+                    <div>
+                      <h2 style="text-transform: uppercase;font-weight: 400;font-size:30px;">No Products Found</h2>
+                      <p style="text-align: right;font-weight:200;">Please try again with different search term.</p>
+                    </div>
+                    {% endif %}
+                  </div>
+                </div>
+                
+                   <!--pagination-->
+                   <div class="row next-page-header pt-5">
+                    <div class="col next-page" style="z-index: 0;">
+                      <ul class="pagination" style="display: flex;justify-content: center;">
+                        <li class="page-item prev"><a class="page-link" href="#/"  style="color:black">Previous</a></li>
+                        <li class="page-item open-content-one-hundred" id="one-hundred"><a class="page-link" href="#/"  style="color:black">1</a></li>
+                        <li class="page-item open-content-two-hundred active"><a class="page-link" href="#/"  style="color:black">2</a></li>
+                        <li class="page-item open-content-three-hundred"><a class="page-link" href="#/"  style="color:black">3</a></li>
+                        <li class="page-item open-content-four-hundred"><a class="page-link" href="#/"  style="color:black">4</a></li>
+                        <li class="page-item open-content-five-hundred"><a class="page-link" href="#/"  style="color:black">5</a></li>
+                        <li class="page-item next"><a class="page-link" href="#/"  style="color:black">Next</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                  <!--pagination-->
+                  <!--500-600 page end-->
+                </div>
+              </div>
+              <!--right side col end-->
+            </div>
+          </div>
+        <!--middle large device end-->
+          <!--recommend-->
+          <div class="container" style="height:80vh">
+            <div class="row">
+              <div class="col-sm-12 text-center pt-5">
+               <span style="text-transform: uppercase;font-weight: 700;font-size:30px;">recommend</span>
+              </div>
+            </div>
+            <div class="row single-slider pt-5">
+              {%for products in products %}
+              <div class="col text-center">
+                <a href="{%url 'homeshop:productdetail' slug=products.slug pk=products.pk%}"><span style="display:flex;justify-content: center;"><img src="{{products.images.url}}" height="250px" style="background-color:black"></span></a>
+                <a href="{%url 'homeshop:productdetail' slug=products.slug pk=products.pk%}"><span class="image-lable">{{products.name}}<br>&#8377;{{products.price}}</span></a> 
+              </div>
+              {% endfor %}              
+            </div>
+          </div>
+          <!--recommend end-->
+  
+{% endblock content %}

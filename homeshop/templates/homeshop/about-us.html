@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    <!--middle part start-->
+    <div class="container mt-5">
+        <div class="row mt-5">
+            <div class="col-12 mt-5 text-center">
+                <span style="text-transform: capitalize;font-size:40px; position:relative; top:17px;">about us</span>
+            </div>
+        </div>
+        {% for about in about_info  %}
+        <!--main content-->
+        <div class="row mt-5">
+            <div class="col-xl-6 col-lg-6 col-sm-12 text-center">
+                <img src="{{about.mainimage.url}}"  style="width: 100%; height: 300px; border-radius: 20px;">
+            </div>
+            <div class="col-xl-6 col-lg-6 col-sm-12 pt-5" style="font-weight: 600;">
+                {{about.allabout}}               
+            </div>
+        </div>
+        <!--main content-->
+        
+        <!--cards-->
+        <div class="row mt-5 mb-5">
+            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 mt-4 mb-4">
+                <div class="card">
+                    <div class="card-header text-center">{{about.centre1city}}</div>
+                    <div class="card-body"><img src="{{about.centre1image.url}}" height="200px" width="100%">
+                        <p class="pt-3"> {{about.centre1info}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 mt-4">
+                <div class="card">
+                    <div class="card-header text-center">{{about.centre2city}}</div>
+                    <div class="card-body"><img src="{{about.centre2image.url}}" height="200px" width="100%">
+                    <p class="pt-3">{{about.centre2info}}</p>
+                    </div>
+                  </div>
+            </div>
+            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12  mt-4 card-3">
+                <div class="card">
+                    <div class="card-header text-center">{{about.centre3city}}</div>
+                    <div class="card-body"><img src="{{about.centre3image.url}}" height="200px" width="100%">
+                    <p class="pt-3"> {{about.centre3info}}</p>
+                  </div>
+            </div>
+        </div>
+        <!--cards-->
+    </div>
+    <!--middle part end-->
+    {% endfor %}
+    {% endblock content %}

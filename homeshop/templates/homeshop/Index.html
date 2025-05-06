@@ -1,0 +1,177 @@
+
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+        <div class="carousel-inner text-center">
+          <div class="carousel-item" style="height:100vh"> 
+            <div style="height:100vh;width:100vw" class="text-right pr-5">
+              <div class="container pt-4">
+                <div class="row mt-3 pt-5">
+                  <div class="col-12 text-center pt-5">
+                    <a href="{%url 'homeshop:specialoffer'%}"><span class="box"><img src="{%static 'Images/sale-box.jpg'%}" height="320px"  style="transform: translateY(10%);"></span></a>
+                    <a href="{%url 'homeshop:specialoffer'%}"><img src="{%static 'Images/sale-1..png'%}" height="300px" class="sale-img"></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div> 
+          <div class="carousel-item" style="height:100vh">
+              <div class="container mt-4 pt-5">
+                <div class="row pt-5 pb-5">
+                  <div class="col-12 text-center pb-4">
+                    <a href="{%url 'homeshop:specialoffer'%}"><span class="hide-banner"><img src="{%static 'Images/ballon.jpg'%}" height="350px;"></span></a>
+                    <a href="{%url 'homeshop:specialoffer'%}"><img src="{%static 'Images/background-image.jpg'%}" height="450px" class="sift-girl" style="margin-top:-3%"></a>
+                    <a href="{%url 'homeshop:specialoffer'%}"><span class="hide-girl"><img src="{%static 'Images/sale-tag.jpg'%}" height="430px;"></span></a>
+                  </div>
+                </div>
+              </div>
+          </div>
+          <div class="carousel-item active" style="height:100vh">
+            <div class="container pt-2 pt-5 pb-5">
+              <div class="row pt-5 pb-5">
+                <div class="col-12 text-center pb-5 pt-4">
+                    <a href="{%url 'homeshop:specialoffer'%}"><span class="hide-lady-1"><img src="{%static 'Images/background-image-1.jpg'%}" height="350px" style="padding-left:6%;margin-top:3%;"></span></a>
+                    <a href="{%url 'homeshop:specialoffer'%}"><span class="special"><img src="{%static 'Images/sale.jpg'%}" height="350px" style="padding-left:3%;margin-top:3%"></span></a>
+                    <a href="{%url 'homeshop:specialoffer'%}"><span class="hide-lady"><img src="{%static 'Images/background-image-2.jpg'%}" height="320px"></span></a>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+      <div class='container-fluid pb-3'>
+        <div class="row">
+          <div class="col text-center">
+            <a><span style="font-size:30px;text-transform:uppercase;font-weight:bold" data-aos="zoom-in">popular</span></a>
+          </div>
+        </div>
+      </div>
+      <div class="container-fluid pt-5" style="background-color:white">
+        <div class="container"> 
+          <div class="row text-center">
+            {% for product in product %}
+            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 text-center">            
+              <div class="container pl-0" height="250px" width="250px" style="overflow:hidden">
+                <a href="{% url 'homeshop:productdetail' slug=product.slug pk=product.pk %}"><img src="{{product.images.url}}" class="img-men" data-aos="fade-up" style="border-radius:20px;"><br></a>
+                <a href="{% url 'homeshop:productdetail' slug=product.slug pk=product.pk %}"><span class="image-lable" data-aos="fade-up">{{product.name}}<br>₹{{product.price}}</span></a>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+          <div class="row mb-1 pb-3">
+            <div class="col-12 pb-5 text-center">
+              <a href="{% url 'homeshop:popularproducts' %}"><span style="font-weight:700;font-size:20px;color:blue" data-aos="zoom-in">see more</span><span class="pl-3" style="color:blue"><i class="fa fa-arrow-right" aria-hidden="true" data-aos="zoom-in"></i></span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container-fluid transparent pt-5 pb-5" id="parallax1" style="background-image:url('{%static 'Images/desktop.jpg'%}');background-size:cover;background-attachment:fixed;">
+        <div class="container sift-couple" height="200px">
+          <div class="row">
+            <div class="col-xl-5 col-lg-5 col-md-6 col-sm-12 col-12 text-center">
+              <a href="ecommerce-price-men.html"><img src="{%static 'Images/wedding-couple.jpg'%}" height="230px" class="pl-5" data-aos="fade-up"></a>
+            </div>
+            <div class="col-xl-7 col-lg-7 col-md-6 col-sm-12 col-12 pt-4 text-center"> 
+              <span style="font-weight:700;font-size:20px;" data-aos="zoom-in">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Vestibulum consequat quam vel diam iaculis consectetur.
+            Praesent ac arcu sem. Nulla consectetur magna ac libero
+            rutrum malesuada. Class aptent taciti sociosqu ad litora
+            torquent per conubia nostra, per</span><br><br><a href="{%url 'homeshop:weddingclothes'%}"><span style="font-size:20px;color:rgb(180, 69, 69);font-weight: 800;text-transform: uppercase;" data-aos="zoom-in">choose your wedding dress</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container-fluid mt-5">
+       <div class="container pt-3 pb-3">
+         <div class="row">
+          <div class="col-sm-12 text-center pb-4 pt-4">
+            <a><span style="text-transform: uppercase;font-weight: 700;font-size:30px;" data-aos="zoom-in">men dresses</span></a>
+          </div>
+         </div>
+        <div class="row pt-1">
+          
+          <div class="col-xl-5 col-lg-5 text-center pt-5 hide-popular">
+            <a><img src="{%static 'Images/mens-dress.jpg'%}" height="400px" data-aos="fade-up"><br></a>
+            <span class="image-lable" data-aos="zoom-in">Trendy Shirts for men</span>
+          </div>
+          
+          <div class="col-xl-7 col-lg-7 col-md-12 col-sm-12 col-12">
+            <div class="row">
+              {% for men in mendress  %}
+              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 text-center pt-3">
+                <a href="{%url 'homeshop:productdetail' slug=men.slug pk=men.pk %}"><img src="{{men.images.url}}" height="200px" data-aos="fade-up"><br></a>
+                <a href="{%url 'homeshop:productdetail' slug=men.slug pk=men.pk %}"><span class="image-lable" data-aos="zoom-in">{{men.name}}<br>₹{{men.price}}</span></a>
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+        <div class="container pr-5 text-center mt-2 pb-3">
+          <div class="row pt-5">
+            <div class="col">
+              <a href="{%url 'homeshop:mendresscollection'%}"><span style="border:3px solid rgb(180, 69, 69);border-radius:10px;padding:1% 2%;background-color:rgb(177, 84, 84);" class="ml-4" data-aos="zoom-in"><span style="font-weight:700;font-size:20px;color:white;text-transform: uppercase;">more</span><span class="pl-3" style="color:white;"><i class="fa fa-arrow-right" aria-hidden="true"></i></span></span></a>
+            </div>
+          </div>
+        </div>
+      </div> 
+      </div>
+       <div class="container-fluid mt-4 pt-2">
+        <div class="container pt-4 pb-4">
+          <div class="row">
+           <div class="col-sm-12 text-center pb-4">
+             <a><span style="text-transform: uppercase;font-weight: 700;font-size:30px;" data-aos="zoom-in">ladies dress</span></a>
+           </div>
+          </div>
+         <div class="row">
+           <div class="col-xl-5 col-lg-5 text-center pt-5 hide-popular">
+             <a><img src="static/Images/ladies-dress.jpg" height="400px" data-aos="fade-up"><br></a>
+             <span class="image-lable" data-aos="zoom-in">Trendy Women dress</span>
+           </div>
+           <div class="col-xl-7 col-lg-7 col-md-12 col-sm-12 col-12">
+             <div class="row">
+              {% for women in womendress %}
+               <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 text-center pt-3">
+                  <a href="{%url 'homeshop:productdetail' slug=women.slug pk=women.pk %}"><img src="{{women.images.url}}" height="200px" data-aos="fade-up"><br></a>
+                  <a href="{%url 'homeshop:productdetail' slug=women.slug pk=women.pk %}"><span class="image-lable" data-aos="zoom-in">{{women.name}}<br>₹{{women.price}}</span></a>
+               </div>
+              {% endfor %}
+             </div>
+           </div>
+         </div>
+       </div>
+       <div class="container pr-5 text-center mt-4 pb-5">
+        <div class="row pt-2 pb-3">
+          <div class="col">
+            <a href="{%url 'homeshop:womendresscollection'%}"><span style="border:3px solid rgb(180, 69, 69);border-radius:10px;padding:1% 2%;background-color:rgb(177, 84, 84);" class="ml-4" data-aos="zoom-in"><span style="font-weight:700;font-size:20px;color:white;text-transform: uppercase;">more</span><span class="pl-3" style="color:white;"><i class="fa fa-arrow-right" aria-hidden="true"></i></span></span></a>
+          </div>
+        </div>
+      </div>
+      </div> 
+      <div class="container pt-4 pb-5">
+        <div class="row">
+          <div class="col-sm-12 text-center">
+            <a><span style="text-transform: uppercase;font-weight: 700;font-size:30px;" data-aos="zoom-in">kids dress</span></a>
+          </div>
+        </div>
+      </div> 
+      <div class="container-fluid pt-5 pb-3 px-0" id = "parallax2" style="background-image:url('static/Images/desktop-1.jpg');background-size:cover;background-attachment: fixed;">
+        <div class="container" height="200px">
+          <div class="row pt-1">
+            {%for child in childdress%}
+           <div class="col-xl-3 col-lg-3  col-md-4 col-sm-6 col-12 pb-3 text-center">
+                <a href="{%url 'homeshop:productdetail' slug=child.slug pk=child.pk %}"><img src="{{child.images.url}}" height="200px" style="border-radius:20px;" data-aos="fade-up"><br></a>
+                <a href="{%url 'homeshop:productdetail' slug=child.slug pk=child.pk %}"><span class="image-lable" data-aos="zoom-in">{{child.name}}<br>₹{{child.price}}</span></a>
+           </div>
+           {%endfor%}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col pt-4 pb-5 text-center">
+            <a href="{%url 'homeshop:childdresscollection'%}"><span style="border:3px solid rgb(180, 69, 69);border-radius:10px;padding:1% 2%;background-color:rgb(177, 84, 84);" class="ml-4" data-aos="zoom-in"><span style="font-weight:700;font-size:20px;color:white;text-transform: uppercase;">more</span><span class="pl-3" style="color:white;"><i class="fa fa-arrow-right" aria-hidden="true"></i></span></span></a>
+          </div>
+        </div>
+      </div>
+{% endblock content %}

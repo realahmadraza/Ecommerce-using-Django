@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<div class="col-6 pl-5 text-white" style="background-color:rgb(68, 146, 146); width: 100%;
+    margin: 25%;
+    height: 100vh;;
+    justify-content: center;
+    align-items: center;">  
+    <div class="text-center" style="padding:5%">
+        <div>
+            <h1>Add to Cart</h1>
+        </div>
+
+        <div>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button style="width:30%;border:1px solid;padding:2% 5%;text-transform: uppercase;font-size:15px;font-weight:600;background-color:rgb(255, 174, 0);border-radius:10px;color:white" type="submit">Add to Cart</button>
+        </form>
+        </div>
+    </div>  
+</div>
+{% endblock content %}
+

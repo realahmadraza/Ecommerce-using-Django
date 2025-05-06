@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<div class="container mt-5">
+        <div class="row pt-5">
+          <div class="col-xl-8 col-lg-12 col-md-12 col-sm-12 col-12 mt-3">
+                <div class="card">
+                  <div class="card-header">
+                    <div class="row pt-3 pb-3">
+                      <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6 ">
+                        <span style="font-size:20px;font-weight:700;color:grey;color:black">My Cart(3)</span>
+                      </div>
+                      <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12  text-right">
+                        <i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;Deliver to &nbsp;<input type="text" placeholder="user name and address">
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="card-body">
+                      <div class="row pb-3 ">
+                        {% for product in cartproduct %}
+                        <div class="col-xl-4 col-lg-2 col-md-3 col-sm-3 col-12 pt-5 text-center">
+                          <img src="{{product.product.images.url}}" height="200px">
+                        <div class="text-left">
+                          <select name="Qunatity" >
+                            <option selected>{{product.quantity}}</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                          </select>
+                        </div>
+                        </div>
+                        <div class="col-xl-8 col-lg-10 col-md-8 col-sm-8 col-12 pt-5">
+                          <p>Item Name:&nbsp;{{product.product.name}}</p>
+                          <p>Price:&nbsp;&#8377;{{product.product.price}}</p>
+                          <p><a href="{% url 'homeshop:remove-from-cart' product.pk %}" style="font-weight:700">REMOVE</a></p>
+                        </div>
+                        {% endfor %}
+                      </div>
+                      <div class="row">
+                        <div class="col pr-5 text-right">
+                          <p><button style="text-transform: uppercase;padding:2% 5%;background-color: tomato;color:white;border-color:transparent" data-toggle="collapse" data-target="#collapseTwo,#payment-option"><a href="{%url 'homeshop:buynow'%}" style="color: white;">Place Order</a></button></p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+          </div>
+          <div class="col-xl-4 col-lg-12 col-md-12 col-sm-12 col-12 mt-3 pt-4">
+            <div class="container">
+            
+              <div class="card">
+                <div class="card-header">PRICE DETAILS</div>
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col text-left">
+                      Price(3) :
+                    </div>
+                    <div class="col text-right">
+                      &#8377;{{totalprice.total_price}}
+                    </div>
+                  </div>
+                    <div class="row pt-3">
+                      <div class="col-7 text-left ">
+                        Delivery Charges :
+                      </div>
+                      <div class="col text-right">
+                        Free
+                      </div>
+                    </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col text-left">
+                      Total Amount :
+                    </div>
+                    <div class="col text-right">
+                      &#8377;{{totalprice.total_price}}
+                    </div>
+                  </div>
+                </div> 
+              </div>
+              
+            </div>
+          </div>
+      </div>
+  </div>
+  {% endblock content %}

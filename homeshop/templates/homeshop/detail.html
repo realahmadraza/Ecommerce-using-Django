@@ -1,0 +1,516 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+            <!--pop up-->
+    <div class="container-fluid mt-5 pop-container" style="position:absolute;z-index:3;background-color: transparent;">
+        <div class="container bg-light mt-2 mb-2 pt-2" style="border-radius:20px;">
+            <div class="row pt-5">
+                <div class="col-6 text-left pt-2 table-header">
+                    <span style="font-size:25px;">Size Chart</span>
+                </div>
+                <div class="col-6 text-right pr-5">
+                    <span style="font-size:35px;" class="close-pop"><a href="#/" style="color:black">&times;</a></span>                                                                
+                </div>
+            </div>
+            <div class="row pt-3 table-header" style="font-size:20px;">
+                <div class="col-12">
+                  Standard 
+                </div>
+            </div>
+            <div class="row pt-3 pb-5 table">
+                <div class="col">
+                    <table class="table table-bordered table-hover table-striped hide-for-tablate">
+                        <thead>
+                          <tr>
+                            <th>Label size</th>
+                            <th>India</th>
+                            <th>Chest(in inches)</th>
+                            <th>Waist(in inches)</th>
+                            <th>Length(in inches)</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>S</td>
+                            <td>Small</td>
+                            <td>38</td>
+                            <td>37.5</td>
+                            <td>27</td>
+                          </tr>
+                          <tr>
+                            <td>M</td>
+                            <td>Medium</td>
+                            <td>40</td>
+                            <td>39.5</td>
+                            <td>27</td>
+                          </tr>
+                          <tr>
+                            <td>L</td>
+                            <td>Large</td>
+                            <td>42</td>
+                            <td>41.5</td>
+                            <td>29</td>
+                          </tr>
+                          <tr>
+                            <td>XL</td>
+                            <td>X-Large</td>
+                            <td>44</td>
+                            <td>43.5</td>
+                            <td>30</td>
+                          </tr>
+                          <tr>
+                            <td>XXL</td>
+                            <td>XX-Large</td>
+                            <td>46</td>
+                            <td>45.5</td>
+                            <td>30.5</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <table class="table table-hover table-striped show-for-tablate">
+                        <thead>
+                          <tr>
+                            <th>Label size</th>
+                            <th>S</th>
+                            <th>M</th>
+                            <th>L</th>
+                            <th>XL</th>
+                            <th>XXL</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>India</td>
+                            <td>Small</td>
+                            <td>Medium</td>
+                            <td>Large</td>
+                            <td>X-Large</td>
+                            <td>XXL-large</td>
+                          </tr>
+                          <tr>
+                            <td>Chest(in inches)</td>
+                            <td>38</td>
+                            <td>40</td>
+                            <td>42</td>
+                            <td>44</td>
+                            <td>46</td>
+                          </tr>
+                          <tr>
+                            <td>Waist(in inches)</td>
+                            <td>37.5</td>
+                            <td>39.5</td>
+                            <td>41.5</td>
+                            <td>43.5</td>
+                            <td>45.5</td>
+                          </tr>
+                          <tr>
+                            <td>Length(in inches)</td>
+                            <td>27</td>
+                            <td>27</td>
+                            <td>29</td>
+                            <td>30</td>
+                            <td>30.5</td>
+                          </tr>                                                     
+                        </tbody>
+                      </table>
+                      <table class="table table-hover table-striped show-for-mobile">
+                        <thead>
+                          <tr>
+                            <th>Label size</th>
+                            <th>Chest(in inches)</th>
+                            <th>Waist(in inches)</th>
+                            <th>Length(in inches)</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>s</td>
+                            <td>38</td>
+                            <td>37.5</td>
+                            <td>27</td>
+                          </tr>
+                          <tr>
+                            <td>M</td>
+                            <td>40</td>
+                            <td>39.5</td>
+                            <td>27</td>
+                          </tr>
+                          <tr>
+                            <td>L</td>
+                            <td>42</td>
+                            <td>41.5</td>
+                            <td>29</td>
+                          </tr>   
+                          <tr>
+                            <td>XL</td>
+                            <td>44</td>
+                            <td>43.5</td>
+                            <td>30</td>
+                          </tr>
+                          <tr>
+                            <td>XXL</td>
+                            <td>46</td>
+                            <td>45.5</td>
+                            <td>30.5</td> 
+                          </tr>                                                  
+                        </tbody>
+                      </table>
+                      <table class="table table-hover table-striped show-for-extra-small-devices">
+                        <thead>
+                          <tr>
+                            <th>Label size</th>
+                            <th>Chest(in inches)</th>
+                            <th>Waist(in inches)</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>s</td>
+                            <td>38</td>
+                            <td>37.5</td>
+                          </tr>
+                          <tr>
+                            <td>M</td>
+                            <td>40</td>
+                            <td>39.5</td>
+                          </tr>
+                          <tr>
+                            <td>L</td>
+                            <td>42</td>
+                            <td>41.5</td>
+                          </tr>   
+                          <tr>
+                            <td>XL</td>
+                            <td>44</td>
+                            <td>43.5</td>
+                          </tr>
+                          <tr>
+                            <td>XXL</td>
+                            <td>46</td>
+                            <td>45.5</td>
+                          </tr>                                                  
+                        </tbody>
+                      </table>
+                      <table class="table table-hover table-striped show-for-extra-small-devices">
+                        <thead>
+                          <tr>
+                            <th>Label size</th>
+                            <th>Length(in inches)</th>
+                          </tr>
+                          <tr>
+                            <td>s</td>
+                            <td>27</td>
+                          </tr>
+                          <tr>
+                          <td>M</td>
+                          <td>27</td>
+                          </tr>
+                          <tr>
+                          <td>L</td>
+                          <td>29</td>
+                          </tr>
+                          <tr>
+                          <td>XL</td>
+                          <td>30</td>
+                          </tr> 
+                          <tr>
+                          <td>XXL</td>
+                          <td>30.5</td>
+                          </tr>  
+                        </thead>
+                      </table>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 table-header">
+                    <p class="pt-3">Measuring T Shirt Size</p>
+                    <span>Not sure about your t shirt size? Follow these simple steps to figure it out:</span><br>
+                    <span style="font-weight: 600;">Shoulder</span> - Measure the shoulder at the back, from edge to edge with arms relaxed on both sides<br>
+                    <span style="font-weight:600;">Chest</span> - Measure around the body under the arms at the fullest part of the chest with your arms relaxed at both sides.<br>
+                    <span style="font-weight:600;">Sleeve</span> - Measure from the shoulder seam through the outer arm to the cuff/hem<br>
+                    <span style="font-weight:600;">Neck</span> - Measured horizontally across the neck Length - Measure from the highest point of the shoulder seam to the bottom hem of the garment's<br>
+                </div>
+                <div class="col-12 text-center pt-5 pb-5">
+                    <img src="{% static 'Images/shirt-detail.jpg'%}" height="300px" width="50%">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--pop up-->
+    <!--middle part start-->
+    <div class="container mt-5 pt-4 hide-for-tablate">
+        <div class="row pt-5">
+            <div class="col-1">
+                <div class="row pt-3 pb-2">
+                    <div class="col-xl-12 text-center">
+                        <a href="#/"><img src="{{details.images.url}}" height="50px" width="100%" class="zooming"></a>
+                    </div>
+                    <div class="col-xl-12 mt-3">
+                       <a href="#/"><img src="{% static 'Images/for-each-image-2.jpg'%}" height="50px" width="100%" class="zooming-1"></a> 
+                    </div>
+                    <div class="col-xl-12 mt-3 front-show">
+                      <a href="#/"><img src="{% static 'Images/for-each-image-3.jpg'%}" height="55px" width="75%" class="zooming-2"></a>
+                      <a href="#/"><div style="font-size:25px;z-index:1;color:black;position: absolute;padding-left:20%;" class="pt-1 front-show">+3</div></a>  
+                    </div>
+                    <div class="col-xl-12 mt-3 front-hide">
+                        <a href="#/"><img src="{% static 'Images/for-each-image-3.jpg'%}" height="50px" width="100%" class="zooming-5"></a> 
+                    </div>
+                    <div class="col-xl-12 mt-3 front-hide">
+                     <a href="#/"><img src="{% static 'Images/for-each-image-5.jpg'%}" height="50px" width="100%" class="zooming-3"></a>  
+                    </div>
+                    <div class="col-xl-12 mt-3 front-hide">
+                      <a href="#/"><img src="{% static 'Images/for-each-image-6.jpg'%}" height="50px" width="100%" class="zooming-4"></a>  
+                    </div>
+                </div>
+            </div>
+            <div class="col-5 text-center zooming-open-head wm-zoom-container my-zoom-1">
+              <div class="wm-zoom-box">
+                <img src="{{details.images.url}}" height="400px" width="405px" class="wm-zoom-default-img" alt="alternative text" data-hight-src="for-each-image-1.jpg">
+              </div>
+            </div>
+<!--hidden--> <div class="col-5 text-center zooming-open-1 wm-zoom-container my-zoom-1">
+              <div class="wm-zoom-box">
+                <img src="{% static 'Images/for-each-image-2.jpg'%}" height="400px" width="405px" class="wm-zoom-default-img" alt="alternative text" data-hight-src="for-each-image-2.jpg">
+              </div>
+            </div>
+<!--hidden--> <div class="col-5 text-center zooming-open-2">
+                <img src="{% static 'Images/for-each-image-3.jpg'%}" height="400px" width="95%">
+              </div>
+<!--hidden--> <div class="col-5 text-center zooming-open-3">
+                <img src="{% static 'Images/for-each-image-5.jpg'%}" height="400px" width="95%">
+            </div>
+<!--hidden--> <div class="col-5 text-center zooming-open-4">
+                <img src="{% static 'Images/for-each-image-6.jpg'%}" height="400px" width="95%">
+            </div>
+            <div class="col-5">
+                <div class="row"> 
+                    <div class="col-12 pt-3">
+                        <p style="font-size:25px;font-weight:600">{{details.name}}</p>
+                    </div>
+                    <div class="col-12 pl-5">
+                        <p style="font-weight:600;font-size:20px;"> Price:<span style="color:red">&#8377;{{details.price}}</span></p>
+                    </div>
+                    <div class="col-12 pl-5">
+                        <p style="font-weight:600;font-size:20px;">size: <span style="border:1px solid;padding:1% 3%" class="ml-3">M</span> <span style="border:1px solid;padding:1% 4%" class="ml-2">L</span> <span style="border:1px solid;padding:1% 3%" class="ml-2">XL</span> <br class="break"><a href="#/" style="color:black" class="ml-3 open-pop-container">size chart <img src="{% static 'Images/size-icon.png' %}" height="20px"></a></p>
+                    </div>
+                    <div class="col-12">
+                        <ul> 
+                          {% for detail in productinstruction %}
+                            <li>{{detail.careinstructions}}</li>
+                            <li>{{detail.Fittype}}</li>
+                            <li>{{detail.color}}</li>
+                            <li>{{detail.cloth}}</li>
+                            <li>{{detail.sleeves}}</li>
+                            <li>{{detail.design}}</li>
+                            <li>{{detail.wash}}</li>                           
+                            {% endfor %}                      
+                        </ul>
+                    </div>
+                </div>
+            </div>  
+        </div>
+        <div class="row pt-2">
+            <div class="col-6">
+              <span style="visibility: hidden;;">hello user</span>
+            </div>
+            <div class="col-6 pl-5 text-white">
+                <a href="{%url 'homeshop:add-to-cart' pk=object.pk %}" style="color:white"><span style="width:30%;border:1px solid;padding:2% 5%;text-transform: uppercase;font-size:15px;font-weight:600;background-color:rgb(255, 174, 0);border-radius:10px;"><i class="fa fa-shopping-cart" aria-hidden="true"></i><span class="ml-2">add to cart</span></span></a>
+                <a href="{%url 'homeshop:buynow'%}" style="color:white"><span style="width:30%;border:1px solid;padding:2% 5%;text-transform: uppercase;font-size:15px;font-weight:600;background-color:orangered;border-radius:10px;" class="ml-3"><i class="fa fa-bolt" aria-hidden="true"></i><span class="ml-2"> buy now</span></span></a>
+            </div>
+        </div>
+        <div class="rows pb-5">
+          <div class="col">
+            <span style="visibility:hidden;">hello user</span>
+          </div>
+        </div>
+    </div>
+    <div class="container show-for-small-devices mt-5 pt-1">
+      <div class="row pt-5 mt-5">
+        <div class="col-2 col-xs-3">
+          <div class="row pt-3 pb-2">
+            <div class="col-xl-12 text-center">
+                <a href="#/"><img src="Images/for-each-image-1.jpg" class="zooming"></a>
+            </div>
+            <div class="col-xl-12 mt-3">
+               <a href="#/"><img src="Images/for-each-image-2.jpg" class="zooming-1"></a> 
+            </div>
+            <div class="col-xl-12 mt-3 front-show">
+              <a href="#/"><img src="Images/for-each-image-3.jpg" height="55px" width="75%" class="zooming-2"></a>
+              <a href="#/"><div class="pt-2 front-show block-img-for-tablate">+3</div></a>  
+            </div>
+            <div class="col-xl-12 mt-3 front-hide">
+                <a href="#/"><img src="Images/for-each-image-3.jpg" class="zooming-5"></a> 
+            </div>
+            <div class="col-xl-12 mt-3 front-hide">
+             <a href="#/"><img src="Images/for-each-image-5.jpg" class="zooming-3"></a>  
+            </div>
+            <div class="col-xl-12 mt-3 front-hide">
+              <a href="#/"><img src="Images/for-each-image-6.jpg" class="zooming-4"></a>  
+            </div>
+        </div>
+        </div>
+        <div class="col-10 col-xs-9 text-center zooming-open-head ">
+          <img src="Images/for-each-image-1.jpg" height="400px" width="95%">
+        </div>
+<!--hidden--> <div class="col-10 text-center zooming-open-1">
+          <img src="Images/for-each-image-2.jpg" height="400px" width="95%">
+              </div>
+<!--hidden-->   <div class="col-10 text-center zooming-open-2">
+          <img src="Images/for-each-image-3.jpg" height="400px" width="95%">
+                </div>
+<!--hidden--> <div class="col-10 text-center zooming-open-3">
+          <img src="Images/for-each-image-5.jpg" height="400px" width="95%">
+              </div>
+<!--hidden--> <div class="col-10 text-center zooming-open-4">
+          <img src="Images/for-each-image-6.jpg" height="400px" width="95%">
+              </div>
+      </div>
+      <div class="row mt-5 pt-5">
+        <div class="col-12 pt-3">
+          <p style="font-size:25px;font-weight:600">{{details.name}}</p>
+      </div>
+      <div class="col-12 pl-5">
+          <p style="font-weight:600;font-size:20px;"> Price:<span style="color:red">&#8377;{{details.price}}</span></p>
+      </div>
+      <div class="col-12 pl-5">
+          <p style="font-weight:600;font-size:20px;">size: <span style="border:1px solid;padding:1% 3%" class="ml-3">M</span> <span style="border:1px solid;padding:1% 4%" class="ml-2">L</span> <span style="border:1px solid;padding:1% 3%" class="ml-2">XL</span> <br class="break"><a href="#/" style="color:black" class="ml-3 open-pop-container">size chart <img src="size-icon.png" height="20px"></a></p>
+      </div>
+      <div class="col-12">
+          <ul>
+            {% for detail in productinstruction %}
+            <li>{{detail.careinstructions}}</li>
+            <li>{{detail.Fittype}}</li>
+            <li>{{detail.color}}</li>
+            <li>{{detail.cloth}}</li>
+            <li>{{detail.sleeves}}</li>
+            <li>{{detail.design}}</li>
+            <li>{{detail.wash}}</li>                           
+          {% endfor %}  
+          </ul>
+      </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <a href="#/" style="color:white"><span style="width:30%;border:1px solid;padding:2% 5%;text-transform: uppercase;font-size:15px;font-weight:600;background-color:rgb(255, 174, 0);border-radius:10px;"><i class="fa fa-shopping-cart" aria-hidden="true"></i><span class="ml-2">add to cart</span></span></a><br class="break-1"><br class="break-1">
+          <a href="#/" style="color:white"><span style="width:30%;border:1px solid;padding:2% 5%;text-transform: uppercase;font-size:15px;font-weight:600;background-color:orangered;border-radius:10px;" class="ml-3"><i class="fa fa-bolt" aria-hidden="true"></i><span class="ml-2"> buy now</span></span></a>
+        </div>
+      </div>
+      <div class="container-fluid mt-5">
+        <span style="visibility: hidden;">hi user</span>
+      </div>
+    </div>
+    <!--middle part end-->
+    <div class="container mb-5"> 
+      <div class="row">
+        <div class="col-sm-12 text-center pb-4 pt-4">
+         <span style="text-transform: uppercase;font-weight: 700;font-size:30px;" data-aos="zoom-in">similar</span>
+        </div>
+      </div>
+      <div class="carousel slide pt-1" data-ride="carousel">
+        <div class="carousel-inner">
+                                              <!--first slider-->
+          
+          <div class="carousel-item active text-center"> 
+            <div class="row">
+              {% for similar in similarproducts %}
+              <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12"> 
+                <div class="container" height="250px" width="250px" style="overflow:hidden">
+                  <a href="for-each-image.html#/"><img src="{{similar.images.url}}" class="img-men" data-aos="fade-up" style="border-radius:20px;"><br></a>
+                  <a href="for-each-image.html#/"><span class="image-lable" data-aos="fade-up">{{similar.name}}<br>${{similar.price}}</span></a>            
+                </div>      
+              </div>
+              {% endfor %}
+            </div> 
+          </div>
+          
+                                             <!--second-slider-->
+          <div class="carousel-item text-center">
+            <div class="row">
+              {% for similar in similarproducts %}
+              <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                <div class="container" height="250px" width="250px" style="overflow:hidden">
+                  <a href="for-each-image.html#/"><img src="{{similar.images.url}}" class="img-men" data-aos="fade-up" style="border-radius:20px;"><br></a>
+                  <a href="for-each-image.html#/"><span class="image-lable" data-aos="fade-up">{{similar.name}}<br>${{similar.price}}</span></a>
+                </div>
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+                                      <!--third slider-->
+          <div class="carousel-item text-center">
+            <div class="row">
+              {% for similar in similarproducts %}
+              <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                <div class="container" height="250px" width="250px" style="overflow:hidden">
+                  <a href="for-each-image.html#/"><img src="{{similar.images.url}}" class="img-men" data-aos="fade-up" style="border-radius:20px;"><br></a>
+                  <a href="for-each-image.html#/"><span class="image-lable" data-aos="fade-up">{{similar.name}}<br>₹{{similar.price}}</span></a>
+                </div>
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript">
+      //for single slider
+$('.single-slider').slick({
+  dots: false,
+  infinite:false,
+  autoplaySpeed: 300,
+  slidesToShow: 4,
+  slidesToScroll: 1,
+  responsive: [
+    {
+      breakpoint: 1200,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        infinite: true,
+        arrows: false,
+        dots: false
+      }
+    },
+    {
+      breakpoint: 991,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 1,
+        infinite: true,
+        dots: false,
+        arrows: false
+      }
+    },
+    {
+      breakpoint: 576,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        infinite: true,
+        dots: false,
+        arrows: false
+      }
+    }
+    // You can unslick at a given breakpoint now by adding:
+    // settings: "unslick"
+    // instead of a settings object
+  ]
+}); 
+    </script>
+    
+    <script type="text/javascript">
+      $(document).ready(function(){
+      $('.my-zoom-1').WMZoom();
+        config : {
+          inner : true
+        }
+      });
+      </script>
+       <script>
+        AOS.init({
+          once:true,
+          duration:1000,
+        });
+      </script>
+  
+{% endblock content %}

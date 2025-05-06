@@ -1,0 +1,41 @@
+{% load static %}
+<header>
+    <div class="carousel slide" data-ride="carousel" style="z-index:1">
+        <div class="container-fluid text-white" id="change-color">
+          <div class="row" id="top-containt">
+            <div class="col-3 text-center">
+              <img src="{%static 'Images/shopping-logo'%}.png" height="130px" class="color -1 -sift">
+            </div>
+            <div class="col-8 pt-4 mt-1 text-right">
+              <span class="dropdown dropdown-toggle profile" data-toggle="dropdown" style="color:black" >
+                <a href="#"><img src="{%static 'Images/profile-icon'%}.png" class="profile-icon color"></a>
+              </span>
+              <ul class="dropdown-menu mt-4 text-center" style="margin-left:-6%;border-radius:10px;">
+                <li class="pre-profile-1 pt-2 pb-2"><a href="#/" class="color" style="font-weight:600">Change Password</a></li>
+                <li class="pre-profile-1 pt-2 pb-2"><a href="#/" class="color" style="font-weight:600">Update Profile</a></li>
+                <li class="pre-profile-1 pt-2 pb-2"><a href="#" class="color" style="font-weight:600">Log In</a></li>
+              </ul>
+              <span class="menu-1"><a href="{%url 'homeshop:index'%}" class="color">home</a></span>
+              <span class="menu"><a href="{%url 'homeshop:allproducts'%}" class="color">products</a></span>
+              <span class="menu"><a href="{%url 'homeshop:cart'%}" class="color">cart</a></span>
+              <span class="menu"><a href="{% url 'homeshop:buynow' %}" class="color">Edit Address</a></span>
+              <span class="menu-bar text-right"><a href="#/" class="color">&#9776;</a></span>
+              <span class="menu-bar-1 text-right"><a href="#/" class="color">&#9776;</a></span>
+              <span class="menu-bar-2 text-right"><a href="#/" class="color">&#9776;</a></span>
+            </div>
+          </div>
+          <div class="container-fluid side-bar px-0">
+            <div class="col-12 text-right bg-danger"> 
+              <span class="close"><a href="#/" class="color">&times;</a></span>
+            </div>
+              <ul class="pt-5 pre-side-bar">
+                <li class="pt-4" style="margin-left:-5%;"><a href="eecommercehtml" class="color">home</a></li>
+                <li class="pt-3"style="margin-left:-5%"><a href="ecommerce-price-men.html" class="color">products</a></li>
+                <li class="pt-3"style="margin-left:-5%"><a href="about-us.html#/" class="color">about</a></li>
+                <li class="pt-3"style="margin-left:-5%"><a href="contact-form.html" class="color">contact</a></li>
+                <li class="pt-3"style="margin-left:-5%"><a href="#/" class="color">Update profile</a></li>
+                <li class="pt-3"style="margin-left:-5%"><a href="login-form.html" class="color">log in</a><span><a href="#" class="color"><img src="{%static 'Images/log-in..png'%}" class="log-in"></a></span></li>
+              </ul>
+        </div>
+    </div>
+</header>
