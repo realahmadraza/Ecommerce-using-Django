@@ -39,28 +39,44 @@ A full-featured e-commerce web application built with Django, showcasing advance
 ## 📁 Project Structure
 
 ```
-Ecomm/                  # Root project folder
-├── Ecomm/              # Django project settings
-│   ├── settings.py
-│   ├── urls.py
-│   └── wsgi.py
-├── shop/               # Main application
+Ecomm/                          # Root project folder
+├── __pycache__/                # Python bytecode cache
+├── accounts/                   # User accounts app (Not Completed)
+│   ├── __init__.py
+│   ├── admin.py
+│   ├── apps.py
 │   ├── migrations/
+│   ├── models.py
+│   ├── tests.py
+│   └── views.py
+├── eshop/                      # E-shop main app
+│   ├── __init__.py
+│   ├── admin.py
+│   ├── apps.py
+│   ├── migrations/
+│   ├── models.py
 │   ├── templates/
-│   │   ├── shop/
-│   │   │   ├── product_list.html
-│   │   │   ├── product_detail.html
-│   │   │   └── about.html
-│   ├── views.py        # Generic views & business logic
-│   ├── models.py       # AllProduct, Order, Address, etc.
-│   ├── signals.py      # Live sales recording
-│   ├── context_processors.py
-│   └── urls.py
-├── static/             # CSS, JS, images
-├── media/              # Uploaded product images
-├── db.sqlite3          # Development database
-├── manage.py
-└── requirements.txt    # Python dependencies
+│   ├── tests.py
+│   └── views.py
+├── homeshop/                   # Home/shop app or landing pages
+│   ├── __init__.py
+│   ├── admin.py
+│   ├── apps.py
+│   ├── migrations/
+│   ├── models.py
+│   ├── templates/
+│   ├── tests.py
+│   └── views.py
+├── media/
+│   └── images/                 # Uploaded product images
+├── static/                     # CSS, JS, images
+├── templates/                  # Global templates (e.g., base.html)
+├── context_processor.py        # Custom context processor
+├── db.sqlite3                  # Development database
+├── manage.py                   # Django management script
+├── Pipfile                     # Pipenv dependencies
+├── Pipfile.lock
+└── README.md                   # Project README
 ```
 
 ---
